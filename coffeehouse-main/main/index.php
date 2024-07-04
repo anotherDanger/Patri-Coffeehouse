@@ -24,8 +24,8 @@ if (isset($_SESSION['login'])) {
 }
 
 $products = new Product();
-$product = $products->getProduct("SELECT * FROM products");
-$product1 = $products->getProduct("SELECT * FROM products")[0];
+$product = $products->getProduct();
+
 $items = $products->products;
 
 
@@ -114,7 +114,7 @@ $items = $products->products;
     <div class="container text-center ">
       <h2 class="mt-3">Produk</h2>
       <div class="row pt-4 gx-4 gy-4">
-        <?php foreach ($product as $row) : ?>
+        <?php foreach ($items as $row) : ?>
         <!-- CARD 1 -->
         <div class="col-md-4">
 
@@ -132,7 +132,7 @@ $items = $products->products;
   </div>
 
 
-  <?php foreach ($product as $row) : ?>
+  <?php foreach ($items as $row) : ?>
   <!-- Modal -->
   <div class="modal fade" id="btnModal<?php echo $row['product_id']; ?>" tabindex="-1"
     aria-labelledby="exampleModalLabel" aria-hidden="true">

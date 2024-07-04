@@ -2,8 +2,8 @@
 session_start();
 require_once "../products/product.php";
 $products = new Product();
-$product = $products->getProduct("SELECT * FROM products");
-$product1 = $products->getProduct("SELECT * FROM products")[0];
+$product = $products->getProduct();
+$items = $products->products;
 
 if(!isset($_SESSION['admin']))
 {
@@ -125,7 +125,7 @@ if(!isset($_SESSION['admin']))
         <h2 class="titlee">Total Products</h2>
         <div class="box-container">
           
-        <?php foreach($product as $row): ?>
+        <?php foreach($items as $row): ?>
                 <div class="box">
                 <img src="../img-coffee/<?php echo $row['product_image']; ?>" alt="<?php echo $row['product_name']; ?>" class="gmbr-popup">
                   <h4><?php echo $row['product_name']; ?></h4>
@@ -136,7 +136,7 @@ if(!isset($_SESSION['admin']))
                 <?php endforeach; ?>
         </div>
               
-        <?php foreach($product as $row): ?>
+        <?php foreach($items as $row): ?>
     <div class="modal fade" id="edit-product-<?php echo $row['product_id']; ?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">

@@ -6,19 +6,27 @@ require_once "../loginTrait/loginTrait.php";
 class LoginAdmin extends Conn implements LoginInterface {
     use TableAccessTrait;
 
-    public function getLogin($data) {
-        $username = $data["username"];
-        $password = $data["password"];
+    public $username;
+    public $password;
 
+    public function __construct($data)
+    {
+        parent::__construct();
+        $this->username = $data["username"];
+        $this->password = $data["password"];
+
+    }
+
+    public function getLogin() {
         $conn = $this->conn;
         $table = $this->table;
         $sql = $conn->prepare("SELECT * FROM $table WHERE username = ?");
-        $sql->execute([$username]);
+        $sql->execute([$this->username]);
 
         if ($sql) {
             $row = $sql->fetch(PDO::FETCH_ASSOC);
             if ($row) {
-                if ($password === $row["password"]) {
+                if ($this->password === $row["password"]) {
                     $_SESSION['admin'] = $_POST['username'];
                     return true;
                 } else {

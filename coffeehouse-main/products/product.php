@@ -7,11 +7,11 @@ class Product extends Conn
     private $gambar;
     public $products;
 
-    public function getProduct($sql)
+    public function getProduct():void
     {
         $conn = $this->conn;
         $rows = [];
-        $query = $conn->prepare($sql);
+        $query = $conn->prepare("SELECT * FROM products");
         $query->execute();
         while($row = $query->fetch(PDO::FETCH_ASSOC))
         {
@@ -19,7 +19,6 @@ class Product extends Conn
         }
 
         $this->products = $rows;
-        return $rows;
     }
 
     public function addProduct($data)
