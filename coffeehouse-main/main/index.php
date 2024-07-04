@@ -4,7 +4,7 @@ require_once "../profil/function.php";
 require_once "../products/product.php";
 require_once "../login/loginfunctions.php";
 // Set session from cookie if session is not set but cookie is present
-if (isset($_COOKIE['user_id_cookie']) && isset($_COOKIE['id'])) {
+if (isset($_COOKIE['user']) && isset($_COOKIE['id'])) {
   $key = $_COOKIE['id'];
   $user = $_COOKIE['user'];
   $rows = new Profil();
