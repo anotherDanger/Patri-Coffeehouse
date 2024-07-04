@@ -7,8 +7,6 @@ require_once "../loginTrait/loginTrait.php";
 class LoginUser extends Conn implements LoginInterface {
     use TableAccessTrait;
 
-    public $username;
-
     public function getLogin($data) {
         $username = $data["username"];
         $password = $data["password"];

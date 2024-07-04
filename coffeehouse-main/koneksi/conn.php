@@ -4,7 +4,7 @@ abstract class Conn
 {
     private $host = "localhost";
     private $port = 3306;
-    private $dbName = "coffeehouse";
+    private $dbName = "coffeehouse_backup";
     private $username = "root";
     private $password = "andhikad";
 
