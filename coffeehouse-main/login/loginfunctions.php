@@ -2,13 +2,12 @@
 session_start();
 require_once "functions.php";
 
-$login = new LoginUser();
-$login->setTable('users');
-
 // Memeriksa apakah form login telah disubmit
 if (isset($_POST['login'])) {
+    $login = new LoginUser($_POST);
+    $login->setTable('users');
     // Melakukan proses login menggunakan metode getLogin dari kelas LoginUser
-    if ($login->getLogin($_POST)) {
+    if ($login->getLogin()) {
         // Jika login berhasil
         
         $login->conn = null; // Menutup koneksi database

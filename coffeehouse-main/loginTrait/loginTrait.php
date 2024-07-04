@@ -2,7 +2,7 @@
 
 // Interface untuk Login
 interface LoginInterface {
-    public function getLogin($data);
+    public function getLogin();
 }
 
 trait TableAccessTrait {
