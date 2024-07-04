@@ -71,6 +71,9 @@ $items = $products->products;
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#kontak">Contact</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="faq.php">FAQ</a>
+          </li>
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item">
